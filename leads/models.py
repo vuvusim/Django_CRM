@@ -11,8 +11,7 @@ class Lead(models.Model):
     # SOURCE_CHOICES = (
     #     ('Youtube', 'Youtube'),
     #     ('Google', 'Google'),
-    #     ('Newsletter', 'Newsletter'),
-        
+    #     ('Newsletter', 'Newsletter'), 
     # )
 
     first_name = models.CharField(max_length=20)
@@ -28,6 +27,11 @@ class Lead(models.Model):
     # profile_picture = models.ImageField(blank=True, null=True)
     # special_files = models.FileField(blank=True, null=True)
 
+    # you nead this func if you get ex."<QuerySet [<Lead: Lead object (1)>]>"
+    # string representation
+    def __str__(self):
+        return f"{self.first_name} {self.last_name}"
+
 
 class Agent(models.Model):
     # one agent can have one user (OneToOneField)
@@ -35,3 +39,8 @@ class Agent(models.Model):
     # we don't need firstname and lastname since agen will login to CRM, and User model asks for first name and lastname
     # first_name = models.CharField(max_length=20)
     # last_name = models.CharField(max_length=20)
+
+    # you nead this func if you get ex."<QuerySet [<Agent: Agent object (1)>]>"
+    # string representation
+    def __str__(self):
+        return self.user.username, self.user.email   
