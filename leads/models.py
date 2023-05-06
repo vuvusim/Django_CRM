@@ -36,11 +36,11 @@ class Lead(models.Model):
 class Agent(models.Model):
     # one agent can have one user (OneToOneField)
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    # we don't need firstname and lastname since agen will login to CRM, and User model asks for first name and lastname
+    # we don't need firstname and lastname since agent   will login to CRM, and User model asks for first name and lastname
     # first_name = models.CharField(max_length=20)
     # last_name = models.CharField(max_length=20)
 
     # you nead this func if you get ex."<QuerySet [<Agent: Agent object (1)>]>"
     # string representation
     def __str__(self):
-        return self.user.username, self.user.email   
+        return f"{self.user.username}, {self.user.email}"   

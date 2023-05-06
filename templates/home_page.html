@@ -8,6 +8,12 @@
 </head>
 <body>
     <h1>Hello World!!!</h1>
-    <p>This is my custom HTML template</p>
+    <h3>This is my HTML template from BASE_DIR template folder</h3>
+    <h4></h4>
+    <ul>
+        {% for lead in leads %}
+        <li>{{ lead }}</li>
+        {% endfor %}
+    </ul>
 </body>
 </html>
